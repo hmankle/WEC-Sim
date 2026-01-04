@@ -1,4 +1,4 @@
-function [f, wp, wpMeanFS]  = nonFKForce(x,elv,direction,spread,center,tnorm,area,rho,g,cg,AH,w,dw,wDepth,deepWater,k,typeNum,t,phaseRand)
+function [f, wp, wpMeanFS]  = nonFKForce_HM(x,elv,direction,spread,center,tnorm,area,rho,g,cg,AH,w,dw,wDepth,deepWater,k,typeNum,t,phaseRand)
 % Function to calculate the wave excitation force and moment on a
 % triangulated surface. The nonlinear excitation forces are calculated by
 % intergrating the pressure over the triangulated surface and subtracting
