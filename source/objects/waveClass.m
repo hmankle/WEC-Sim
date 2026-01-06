@@ -601,7 +601,7 @@ classdef waveClass<handle
     end
 
     methods (Access = 'protected')
-        function setWavePhase(obj)
+        function setWavePhase(obj)amplitude
             % Sets the irregular wave's random phase
             % used by: :meth:`waveClass.setup`.
             if obj.phaseSeed ~= 0
