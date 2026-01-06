@@ -7,10 +7,11 @@ Fext = zeros(1,size(fExtRE,3));
 for ii=1:length(direction)
     B1= sin(bsxfun(@plus,A1,phaseRand(:,ii)));
     B11 = sin(bsxfun(@plus,w*time,phaseRand(:,ii)));
-    C0 = bsxfun(@times,A*spread(ii),dw);
+    %C0 = bsxfun(@times,A*spread(ii),dw);
+    C0 = A*spread(ii);
    % C1 == Ak for elevation time series
     %C1_rp = sqrt(bsxfun(@times,A*spread(ii),dw)); % Random-Phase Method
-    C1_ra = bsxfun(@times,A*spread(ii)); % Random-Amplitude Method
+    C1_ra = A*spread(ii); % Random-Amplitude Method
     D0 =bsxfun(@times,squeeze(fExtMD(ii,:,:)),C0);
     D1 =bsxfun(@times,squeeze(fExtRE(ii,:,:)),C1_ra);
     D11 = bsxfun(@times,squeeze(fExtIM(ii,:,:)),C1_ra);
