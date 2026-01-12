@@ -323,7 +323,7 @@ classdef waveClass<handle
                             obj.setWavePhase;
                             obj.irregWaveSpectrum2(g,rho)
                             obj.wavenumber = calcWaveNumber(obj.omega,obj.waterDepth,g,obj.deepWater);
-                            obj.waveElevIrreg2(rampTime, time, obj.dOmega);
+                            obj.waveElevIrreg2(rampTime, time);
                         case {'EqualEnergy'}
                             bemCount_interp = 500000;
                             obj.omega = (minFrequency:(maxFrequency-minFrequency)/bemCount_interp:maxFrequency)';
@@ -440,7 +440,7 @@ classdef waveClass<handle
                     obj.waveElevReg(rampTime, timeseries);
 
                 case {'irregular','spectrumImport'}
-                    obj.waveElevIrreg2(rampTime, timeseries, obj.dOmega);
+                    obj.waveElevIrreg2(rampTime, timeseries);
 
                 case{'spectrumImportFullDir'}
                     obj.waveElevFullDir(rampTime,timeseries,obj.dOmega);
@@ -601,7 +601,7 @@ classdef waveClass<handle
     end
 
     methods (Access = 'protected')
-        function setWavePhase(obj)amplitude
+        function setWavePhase(obj)
             % Sets the irregular wave's random phase
             % used by: :meth:`waveClass.setup`.
             if obj.phaseSeed ~= 0
